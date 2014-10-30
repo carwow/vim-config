@@ -1,0 +1,21 @@
+set t_Co=16
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+set guifont=Monaco:h16
+
+cd $HOME/projects
+
+fun! TabNewChangeDirectory( path ) "{{{
+  execute 'tabnew | lcd ' . expand( a:path )
+endfunction "}}}
+
+command -nargs=1 -complete=file Tabnewcd call TabNewChangeDirectory( '<args>' )
+
+map <Leader>r :Rename <C-R>=expand('%:h').'/'<CR>
+
+map ,n :NERDTreeToggle<CR>
+
+if filereadable(expand("~/.vimrc.custom"))
+  source ~/.vimrc.custom
+endif
