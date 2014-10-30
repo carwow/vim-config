@@ -16,6 +16,6 @@ map <Leader>r :Rename <C-R>=expand('%:h').'/'<CR>
 
 map ,n :NERDTreeToggle<CR>
 
-if filereadable(expand("~/.vimrc.custom"))
-  source ~/.vimrc.custom
+if filereadable(expand("~/.vimrc.after.custom"))
+  source ~/.vimrc.after.custom
 endif
